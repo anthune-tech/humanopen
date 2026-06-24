@@ -1,0 +1,11 @@
+build/
+android/.gradle/
+.dart_tool/
+.gradle/
+*.iml
+.idea/
+.DS_Store
+push_models.sh
+**/.cxx/
+.gradle/
+plugins/**/build/
