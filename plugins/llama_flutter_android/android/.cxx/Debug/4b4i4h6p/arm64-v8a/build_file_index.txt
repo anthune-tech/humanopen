@@ -1,0 +1,15 @@
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/CMakeLists.txt
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/cmake/FindVulkan.cmake
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/CMakeLists.txt
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/build-info.cmake
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/common.cmake
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/license.cmake
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/llama-config.cmake.in
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/CMakeLists.txt
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/common.cmake
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/ggml-config.cmake.in
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/CMakeLists.txt
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-cpu/CMakeLists.txt
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/CMakeLists.txt
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/cmake/host-toolchain.cmake.in
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/src/CMakeLists.txt

@@ -1,0 +1,246 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp",
+					"childIndexes" : 
+					[
+						2,
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp-Debug-63c4c4f5b4267b0180bc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src/main/cpp/llama.cpp"
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/ggml",
+					"childIndexes" : 
+					[
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.ggml-Debug-9bb6b9af3191e7cfa6dc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "src/main/cpp/llama.cpp/ggml"
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/ggml/src",
+					"childIndexes" : 
+					[
+						4,
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.ggml.src-Debug-ba52c0084f29c857122c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "src/main/cpp/llama.cpp/ggml/src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/ggml/src/ggml-cpu",
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.ggml.src.ggml-cpu-Debug-8488a95e1033959453bc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "src/main/cpp/llama.cpp/ggml/src/ggml-cpu"
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/ggml/src/ggml-vulkan",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.ggml.src.ggml-vulkan-Debug-3824becee8456774cc80.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.19"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "src/main/cpp/llama.cpp/ggml/src/ggml-vulkan",
+					"targetIndexes" : 
+					[
+						3,
+						6
+					]
+				},
+				{
+					"build" : "src/main/cpp/llama.cpp/src",
+					"jsonFile" : "directory-src.main.cpp.llama.cpp.src-Debug-85fabd8d462561f2ed9a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "src/main/cpp/llama.cpp/src",
+					"targetIndexes" : 
+					[
+						4
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "llama_jni",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1,
+						6
+					],
+					"name" : "llama.cpp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						4
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					],
+					"name" : "ggml",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "ggml::@c3576ecaca8316145c0a",
+					"jsonFile" : "target-ggml-Debug-27a4241aedaa67b6346a.json",
+					"name" : "ggml",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ggml-base::@c3576ecaca8316145c0a",
+					"jsonFile" : "target-ggml-base-Debug-629c685573df5b3cc238.json",
+					"name" : "ggml-base",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "ggml-cpu::@c3576ecaca8316145c0a",
+					"jsonFile" : "target-ggml-cpu-Debug-f8941499b37914cd5182.json",
+					"name" : "ggml-cpu",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "ggml-vulkan::@a45c3d51a46d83cfa272",
+					"jsonFile" : "target-ggml-vulkan-Debug-03dde5646d4925fa567e.json",
+					"name" : "ggml-vulkan",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "llama::@f18c97d372e01737396d",
+					"jsonFile" : "target-llama-Debug-60ca2082b6d659a6d714.json",
+					"name" : "llama",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "llama_jni::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-llama_jni-Debug-76dd859351d0bc9b12c0.json",
+					"name" : "llama_jni",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "vulkan-shaders-gen::@a45c3d51a46d83cfa272",
+					"jsonFile" : "target-vulkan-shaders-gen-Debug-f8a66930e9d33c4ace49.json",
+					"name" : "vulkan-shaders-gen",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a",
+		"source" : "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,15 @@
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/CMakeLists.txt
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/cmake/FindVulkan.cmake
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/CMakeLists.txt
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/build-info.cmake
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/common.cmake
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/license.cmake
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/llama-config.cmake.in
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/CMakeLists.txt
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/common.cmake
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/ggml-config.cmake.in
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/CMakeLists.txt
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-cpu/CMakeLists.txt
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/CMakeLists.txt
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/cmake/host-toolchain.cmake.in
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/src/CMakeLists.txt

@@ -1,0 +1,13 @@
+# Target labels
+ vulkan-shaders-gen
+# Source files and their labels
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/CMakeFiles/vulkan-shaders-gen
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/CMakeFiles/vulkan-shaders-gen.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/CMakeFiles/vulkan-shaders-gen-complete.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-stamp/vulkan-shaders-gen-build.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-stamp/vulkan-shaders-gen-configure.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-stamp/vulkan-shaders-gen-download.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-stamp/vulkan-shaders-gen-install.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-stamp/vulkan-shaders-gen-mkdir.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-stamp/vulkan-shaders-gen-patch.rule
+/media/azmarpop/DATA/MY_AI/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/4b4i4h6p/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-stamp/vulkan-shaders-gen-update.rule

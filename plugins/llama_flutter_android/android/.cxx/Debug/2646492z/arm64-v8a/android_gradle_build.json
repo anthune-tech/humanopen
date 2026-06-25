@@ -1,0 +1,113 @@
+{
+  "buildFiles": [
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/CMakeLists.txt",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/cmake/FindVulkan.cmake",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/CMakeLists.txt",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/build-info.cmake",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/common.cmake",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/license.cmake",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/llama-config.cmake.in",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/CMakeLists.txt",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/common.cmake",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/ggml-config.cmake.in",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/CMakeLists.txt",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-cpu/CMakeLists.txt",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/CMakeLists.txt",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/cmake/host-toolchain.cmake.in",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/src/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/azmarpop/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/azmarpop/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "ggml::@c3576ecaca8316145c0a": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ggml",
+      "output": "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml.so",
+      "runtimeFiles": [
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-cpu.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-vulkan.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "ggml-base::@c3576ecaca8316145c0a": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ggml-base",
+      "output": "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-base.so",
+      "runtimeFiles": []
+    },
+    "ggml-cpu::@c3576ecaca8316145c0a": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ggml-cpu",
+      "output": "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-cpu.so",
+      "runtimeFiles": [
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "ggml-vulkan::@a45c3d51a46d83cfa272": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ggml-vulkan",
+      "output": "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-vulkan.so",
+      "runtimeFiles": [
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "llama::@f18c97d372e01737396d": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "llama",
+      "output": "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libllama.so",
+      "runtimeFiles": [
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-cpu.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-vulkan.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "llama_jni::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "llama_jni",
+      "output": "/tmp/opencode/humanopen/build/llama_flutter_android/intermediates/cxx/Debug/2646492z/obj/arm64-v8a/libllama_jni.so",
+      "runtimeFiles": [
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libllama.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-cpu.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-vulkan.so",
+        "/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "vulkan-shaders-gen::@a45c3d51a46d83cfa272": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "vulkan-shaders-gen"
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/home/azmarpop/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/home/azmarpop/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

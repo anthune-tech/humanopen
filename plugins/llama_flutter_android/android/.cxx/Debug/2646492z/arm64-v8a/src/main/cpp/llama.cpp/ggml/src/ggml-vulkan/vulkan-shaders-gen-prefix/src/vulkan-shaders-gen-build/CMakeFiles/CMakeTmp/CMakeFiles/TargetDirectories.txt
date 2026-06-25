@@ -1,0 +1,3 @@
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-build/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_277a0.dir
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-build/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
+/tmp/opencode/cross-platform-llm-client/local_plugins/llama_flutter_android/android/.cxx/Debug/2646492z/arm64-v8a/src/main/cpp/llama.cpp/ggml/src/ggml-vulkan/vulkan-shaders-gen-prefix/src/vulkan-shaders-gen-build/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir
