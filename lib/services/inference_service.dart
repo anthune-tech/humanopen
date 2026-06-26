@@ -38,8 +38,8 @@ class InferenceService {
   String get computeMode => _engine.computeMode;
   int get uptime => DateTime.now().difference(_startTime).inSeconds;
 
-  Future<void> loadModel(String modelPath, {String modelName = 'humanopen-3b', int gpuLayers = 99, int contextSize = 32768}) async {
-    await _engine.loadMainModel(modelPath, gpuLayers: gpuLayers, contextSize: contextSize);
+  Future<void> loadModel(String modelPath, {String modelName = 'humanopen-3b', int gpuLayers = 99, int contextSize = 32768, int threads = 8}) async {
+    await _engine.loadMainModel(modelPath, gpuLayers: gpuLayers, contextSize: contextSize, threads: threads);
     _isModelLoaded = true;
     _currentModelName = modelName;
   }

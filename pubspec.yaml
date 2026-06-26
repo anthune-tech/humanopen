@@ -1,7 +1,7 @@
 name: humanopen
 description: "Standalone personal AI appliance - private, persistent, unlimited"
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ^3.12.2

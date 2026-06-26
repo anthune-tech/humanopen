@@ -43,3 +43,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# NDK build artifacts
+.cxx/
+plugins/llama_flutter_android/android/cmake/
+plugins/llama_flutter_android/android/src/main/cpp/opencl-headers/

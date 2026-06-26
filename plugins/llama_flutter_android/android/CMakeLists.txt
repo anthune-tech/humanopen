@@ -16,13 +16,13 @@ if(ANDROID_ABI STREQUAL "arm64-v8a")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -march=armv8-a+crc")
 endif()
 
-# Custom FindVulkan for Android NDK cross-compilation
+# Custom FindVulkan for Android NDK cross-compilation (kept for GPU detection)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 # llama.cpp options
 set(GGML_CPU_AARCH64 ON CACHE BOOL "Enable ARM64 support")
 set(GGML_DOTPROD ON CACHE BOOL "Enable ARM NEON dot product")
-set(GGML_VULKAN OFF CACHE BOOL "Enable Vulkan GPU backend" FORCE)
+set(GGML_OPENCL OFF CACHE BOOL "Disable OpenCL (vendor libs not accessible from app namespace)" FORCE)
 set(GGML_OPENMP OFF CACHE BOOL "Disable OpenMP to avoid packaging libomp.so" FORCE)
 set(GGML_STATIC OFF CACHE BOOL "Build as shared library")
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libraries")
@@ -46,7 +46,7 @@ if(ANDROID)
     endforeach()
 endif()
 
-# JNI wrapper library - simplified without common library
+# JNI wrapper library
 add_library(llama_jni SHARED
     src/main/cpp/jni_wrapper.cpp
 )
@@ -56,7 +56,7 @@ target_link_libraries(llama_jni PRIVATE
     c++_shared
     android
     log
-    -lvulkan
+    vulkan
 )
 
 target_include_directories(llama_jni PRIVATE

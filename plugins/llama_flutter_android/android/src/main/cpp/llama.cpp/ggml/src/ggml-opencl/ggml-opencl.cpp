@@ -15,6 +15,7 @@
 
 #include <CL/cl.h>
 
+#include <dlfcn.h>
 #include <inttypes.h>
 #include <string.h>
 
@@ -6189,7 +6190,14 @@ static ggml_backend_buffer_t ggml_backend_opencl_buffer_type_alloc_buffer(ggml_b
     cl_mem mem = clCreateBuffer(backend_ctx->context, CL_MEM_READ_WRITE, size, NULL, &err);
     if (err != CL_SUCCESS && backend_ctx->adreno_use_large_buffer) {
         cl_mem_properties props[] = { 0x41A6 /* CL_LARGE_BUFFER_QCOM */, 1, 0 };
-        mem = clCreateBufferWithProperties(backend_ctx->context, props, CL_MEM_READ_WRITE, size, NULL, &err);
+        typedef cl_mem (*clCreateBufferWithProperties_fn)(cl_context, const cl_mem_properties *, cl_mem_flags, size_t, void *, cl_int *);
+        static clCreateBufferWithProperties_fn fn = nullptr;
+        if (!fn) {
+            fn = (clCreateBufferWithProperties_fn)dlsym(RTLD_DEFAULT, "clCreateBufferWithProperties");
+        }
+        if (fn) {
+            mem = fn(backend_ctx->context, props, CL_MEM_READ_WRITE, size, NULL, &err);
+        }
     }
 
     if (err != CL_SUCCESS) {

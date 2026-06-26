@@ -21,7 +21,7 @@ class InferenceEngine {
     return info;
   }
 
-  Future<void> loadMainModel(String modelPath, {int gpuLayers = 99, int contextSize = 32768, int threads = 4}) async {
+  Future<void> loadMainModel(String modelPath, {int gpuLayers = 99, int contextSize = 32768, int threads = 8}) async {
     if (_mainLoaded) return;
 
     if (gpuLayers > 0) {

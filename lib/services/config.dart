@@ -45,7 +45,8 @@ class Config {
     'main_model_name': 'humanopen-3b',
     'summarizer_model': '/storage/emulated/0/Android/data/com.humanopen.humanopen/files/models/summarizer.gguf',
     'gpu_layers': 99,
-    'context_size': 32768,
+    'context_size': 8192,
+    'build_threads': 8,
     'server_port': 8080,
     'auto_start': true,
     'wifi_first': true,
@@ -70,6 +71,7 @@ class Config {
   String get summarizerModelPath => _data['summarizer_model'] as String? ?? _defaults()['summarizer_model'] as String;
   int get gpuLayers => _data['gpu_layers'] as int? ?? _defaults()['gpu_layers'] as int;
   int get contextSize => _data['context_size'] as int? ?? _defaults()['context_size'] as int;
+  int get buildThreads => _data['build_threads'] as int? ?? _defaults()['build_threads'] as int;
   int get serverPort => _data['server_port'] as int? ?? _defaults()['server_port'] as int;
   bool get autoStart => _data['auto_start'] as bool? ?? _defaults()['auto_start'] as bool;
   bool get wifiFirst => _data['wifi_first'] as bool? ?? _defaults()['wifi_first'] as bool;
@@ -84,6 +86,7 @@ class Config {
   set summarizerModelPath(String v) { _data['summarizer_model'] = v; save(); }
   set gpuLayers(int v) { _data['gpu_layers'] = v; save(); }
   set contextSize(int v) { _data['context_size'] = v; save(); }
+  set buildThreads(int v) { _data['build_threads'] = v; save(); }
   set serverPort(int v) { _data['server_port'] = v; save(); }
   set autoStart(bool v) { _data['auto_start'] = v; save(); }
   set wifiFirst(bool v) { _data['wifi_first'] = v; save(); }

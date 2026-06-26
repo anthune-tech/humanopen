@@ -79,6 +79,7 @@ class _HumanopenAppState extends State<HumanopenApp> {
         modelName: Config.instance.mainModelName,
         gpuLayers: Config.instance.gpuLayers,
         contextSize: Config.instance.contextSize,
+        threads: Config.instance.buildThreads,
       );
     } catch (e) {
       setState(() { _initMessage = 'Model not found: $e'; });

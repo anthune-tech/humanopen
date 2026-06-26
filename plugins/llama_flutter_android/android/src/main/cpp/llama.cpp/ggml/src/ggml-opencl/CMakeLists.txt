@@ -1,4 +1,12 @@
-find_package(OpenCL REQUIRED)
+if(ANDROID)
+    # Android NDK: headers vendored in project, libOpenCL.so packaged in APK jniLibs
+    set(OpenCL_FOUND TRUE)
+    set(OpenCL_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/src/main/cpp/opencl-headers")
+    set(OpenCL_LIBRARIES OpenCL)
+    message(STATUS "OpenCL (Android): headers=${OpenCL_INCLUDE_DIRS}, lib=${OpenCL_LIBRARIES}")
+else()
+    find_package(OpenCL REQUIRED)
+endif()
 find_package(Python3 REQUIRED)
 
 set(TARGET_NAME ggml-opencl)

@@ -19,7 +19,8 @@ class _SettingsViewState extends State<SettingsView> {
   late TextEditingController _apiUrlCtrl;
   late TextEditingController _apiKeyCtrl;
   int _gpuLayers = 99;
-  int _contextSize = 32768;
+  int _contextSize = 8192;
+  int _buildThreads = 8;
   double _temperature = 0.7;
   bool _useLocalModel = true;
   bool _useLocalStt = true;
@@ -35,6 +36,7 @@ class _SettingsViewState extends State<SettingsView> {
     _apiKeyCtrl = TextEditingController(text: Config.instance.apiKey);
     _gpuLayers = Config.instance.gpuLayers;
     _contextSize = Config.instance.contextSize;
+    _buildThreads = Config.instance.buildThreads;
     _temperature = Config.instance.temperature;
     _useLocalModel = Config.instance.useLocalModel;
     _useLocalStt = Config.instance.useLocalStt;
@@ -58,6 +60,7 @@ class _SettingsViewState extends State<SettingsView> {
     Config.instance.summarizerModelPath = _summarizerCtrl.text;
     Config.instance.gpuLayers = _gpuLayers;
     Config.instance.contextSize = _contextSize;
+    Config.instance.buildThreads = _buildThreads;
     Config.instance.temperature = _temperature;
     Config.instance.apiBaseUrl = _apiUrlCtrl.text;
     Config.instance.apiKey = _apiKeyCtrl.text;
@@ -70,6 +73,7 @@ class _SettingsViewState extends State<SettingsView> {
         modelName: Config.instance.mainModelName,
         gpuLayers: Config.instance.gpuLayers,
         contextSize: Config.instance.contextSize,
+        threads: Config.instance.buildThreads,
       );
       try {
         await widget.inferenceService.loadSummarizer(Config.instance.summarizerModelPath);
@@ -128,7 +132,10 @@ class _SettingsViewState extends State<SettingsView> {
                 [0, 16, 32, 99], (v) => setState(() => _gpuLayers = v!)),
             SizedBox(height: 12),
             _buildDropdown('Context size', _contextSize,
-                [8192, 16384, 32768, 65536], (v) => setState(() => _contextSize = v!)),
+                [4096, 8192, 16384, 32768], (v) => setState(() => _contextSize = v!)),
+            SizedBox(height: 12),
+            _buildDropdown('Threads', _buildThreads,
+                [4, 6, 8], (v) => setState(() => _buildThreads = v!)),
             SizedBox(height: 12),
             _buildSlider('Temperature', _temperature, (v) => setState(() => _temperature = v)),
             SizedBox(height: 24),

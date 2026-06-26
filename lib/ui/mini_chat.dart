@@ -33,6 +33,20 @@ class _MiniChatState extends State<MiniChat> {
   bool _loading = true;
   AiState _aiState = AiState.idle;
   StreamSubscription? _generationSub;
+  int _dotCount = 0;
+  Timer? _dotTimer;
+  int _tokenCount = 0;
+  int _lastTokenCount = 0;
+
+  String get _statusLabel {
+    if (_isListening) return 'Listening';
+    switch (_aiState) {
+      case AiState.generating: return 'Thinking';
+      case AiState.loading: return 'Loading model';
+      case AiState.error: return 'Error';
+      case AiState.idle: return 'Idle';
+    }
+  }
 
   String _currentMatrixId = '';
   String _currentSessionId = '';
@@ -51,6 +65,7 @@ class _MiniChatState extends State<MiniChat> {
     _controller.dispose();
     _scrollController.dispose();
     _generationSub?.cancel();
+    _dotTimer?.cancel();
     _sttService.dispose();
     super.dispose();
   }
@@ -141,6 +156,9 @@ class _MiniChatState extends State<MiniChat> {
       _messages.add({'role': 'user', 'content': text});
       _isGenerating = true;
       _aiState = AiState.generating;
+      _tokenCount = 0;
+      _lastTokenCount = 0;
+      _startDotAnimation();
     });
     _controller.clear();
     _scrollDown();
@@ -160,6 +178,7 @@ class _MiniChatState extends State<MiniChat> {
         .listen(
       (token) {
         buffer.write(token);
+        _tokenCount++;
         setState(() {
           if (_messages.isNotEmpty &&
               _messages.last['role'] == 'assistant') {
@@ -172,12 +191,15 @@ class _MiniChatState extends State<MiniChat> {
         _scrollDown();
       },
       onDone: () {
+        _stopDotAnimation();
         setState(() {
           _isGenerating = false;
           _aiState = AiState.idle;
+          _lastTokenCount = _tokenCount;
         });
       },
       onError: (_) {
+        _stopDotAnimation();
         setState(() {
           _isGenerating = false;
           _aiState = AiState.error;
@@ -197,6 +219,18 @@ class _MiniChatState extends State<MiniChat> {
       }
       if (mounted) setState(() => _matrices = matrices);
     } catch (_) {}
+  }
+
+  void _startDotAnimation() {
+    _dotCount = 0;
+    _dotTimer = Timer.periodic(const Duration(milliseconds: 500), (_) {
+      if (mounted) setState(() => _dotCount = (_dotCount + 1) % 4);
+    });
+  }
+
+  void _stopDotAnimation() {
+    _dotTimer?.cancel();
+    _dotTimer = null;
   }
 
   void _scrollDown() {
@@ -327,12 +361,59 @@ class _MiniChatState extends State<MiniChat> {
                   if (_isGenerating || _isListening)
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8),
-                      child: Text(
-                        _isListening ? 'listening...' : 'generating...',
-                        style: TextStyle(
-                          color: Colors.white.withValues(alpha: 0.3),
-                          fontSize: 10,
-                          letterSpacing: 2,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            _isListening ? 'Listening' : _statusLabel,
+                            style: TextStyle(
+                              color: Colors.white.withValues(alpha: 0.3),
+                              fontSize: 10,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                          if (!_isListening && _tokenCount > 0)
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                SizedBox(width: 4),
+                                Text(
+                                  '· $_tokenCount',
+                                  style: TextStyle(
+                                    color: Colors.white.withValues(alpha: 0.2),
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          SizedBox(width: 2),
+                          Text(
+                            _isListening
+                                ? '...'
+                                : '.' * (_dotCount + 1) +
+                                    ' ' * (3 - _dotCount),
+                            style: TextStyle(
+                              color: Colors.white.withValues(alpha: 0.3),
+                              fontSize: 10,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  if (_lastTokenCount > 0)
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16, bottom: 2),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          '$_lastTokenCount tokens',
+                          style: TextStyle(
+                            color: Colors.white.withValues(alpha: 0.15),
+                            fontSize: 9,
+                            letterSpacing: 1,
+                          ),
                         ),
                       ),
                     ),

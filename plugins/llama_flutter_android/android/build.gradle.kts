@@ -74,7 +74,7 @@ android {
                     "-DANDROID_ARM_NEON=ON",
                     "-DGGML_CPU_AARCH64=ON",
                     "-DGGML_DOTPROD=ON",
-                    "-DGGML_VULKAN=ON",
+                    "-DGGML_OPENCL=ON",
                     "-DGGML_OPENMP=OFF"
                 )
             }
