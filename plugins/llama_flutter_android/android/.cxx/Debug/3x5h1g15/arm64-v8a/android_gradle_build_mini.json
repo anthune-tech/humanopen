@@ -1,0 +1,76 @@
+{
+  "buildFiles": [
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/CMakeLists.txt",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/CMakeLists.txt",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/build-info.cmake",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/common.cmake",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/license.cmake",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/llama-config.cmake.in",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/CMakeLists.txt",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/common.cmake",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/ggml-config.cmake.in",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/CMakeLists.txt",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-cpu/CMakeLists.txt",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/src/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/azmarpop/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/azmarpop/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "ggml::@c3576ecaca8316145c0a": {
+      "artifactName": "ggml",
+      "abi": "arm64-v8a",
+      "output": "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml.so",
+      "runtimeFiles": [
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-cpu.so",
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "llama::@f18c97d372e01737396d": {
+      "artifactName": "llama",
+      "abi": "arm64-v8a",
+      "output": "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libllama.so",
+      "runtimeFiles": [
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml.so",
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-cpu.so",
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "ggml-base::@c3576ecaca8316145c0a": {
+      "artifactName": "ggml-base",
+      "abi": "arm64-v8a",
+      "output": "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-base.so",
+      "runtimeFiles": []
+    },
+    "ggml-cpu::@c3576ecaca8316145c0a": {
+      "artifactName": "ggml-cpu",
+      "abi": "arm64-v8a",
+      "output": "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-cpu.so",
+      "runtimeFiles": [
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-base.so"
+      ]
+    },
+    "llama_jni::@6890427a1f51a3e7e1df": {
+      "artifactName": "llama_jni",
+      "abi": "arm64-v8a",
+      "output": "/home/azmarpop/humanopen/build/llama_flutter_android/intermediates/cxx/Debug/3x5h1g15/obj/arm64-v8a/libllama_jni.so",
+      "runtimeFiles": [
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libllama.so",
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml.so",
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-cpu.so",
+        "/home/azmarpop/humanopen/plugins/llama_flutter_android/android/.cxx/Debug/3x5h1g15/arm64-v8a/bin/libggml-base.so"
+      ]
+    }
+  }
+}

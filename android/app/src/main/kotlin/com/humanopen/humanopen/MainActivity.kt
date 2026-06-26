@@ -3,7 +3,6 @@ package com.humanopen.humanopen
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
@@ -28,11 +27,7 @@ class MainActivity : FlutterActivity() {
             when (call.method) {
                 "startService" -> {
                     val intent = Intent(this, ForegroundService::class.java)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        startForegroundService(intent)
-                    } else {
-                        startService(intent)
-                    }
+                    startForegroundService(intent)
                     result.success(null)
                 }
                 "stopService" -> {

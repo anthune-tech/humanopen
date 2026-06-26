@@ -217,9 +217,9 @@ class _HomeScreenState extends State<HomeScreen> {
       spacing: 8,
       runSpacing: 8,
       children: items.map((item) {
-        final label = item.$1 as String;
-        final value = item.$2 as String;
-        final tab = item.$3 as String?;
+        final label = item.$1;
+        final value = item.$2;
+        final tab = item.$3;
         return GestureDetector(
           onTap: tab != null
               ? () => Navigator.of(context).push(

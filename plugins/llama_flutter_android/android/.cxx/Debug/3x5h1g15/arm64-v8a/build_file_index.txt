@@ -1,0 +1,12 @@
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/CMakeLists.txt
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/CMakeLists.txt
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/build-info.cmake
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/common.cmake
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/license.cmake
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/cmake/llama-config.cmake.in
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/CMakeLists.txt
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/common.cmake
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/cmake/ggml-config.cmake.in
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/CMakeLists.txt
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/ggml/src/ggml-cpu/CMakeLists.txt
+/home/azmarpop/humanopen/plugins/llama_flutter_android/android/src/main/cpp/llama.cpp/src/CMakeLists.txt

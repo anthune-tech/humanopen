@@ -226,7 +226,7 @@ class _SettingsViewState extends State<SettingsView> {
         Switch(
           value: value,
           onChanged: onChanged,
-          activeColor: Colors.tealAccent.withValues(alpha: 0.6),
+          activeThumbColor: Colors.tealAccent.withValues(alpha: 0.6),
           inactiveThumbColor: Colors.white.withValues(alpha: 0.3),
           inactiveTrackColor: Colors.white.withValues(alpha: 0.1),
         ),

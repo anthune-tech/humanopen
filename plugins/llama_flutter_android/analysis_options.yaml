@@ -1,4 +1,2 @@
-include: package:flutter_lints/flutter.yaml
-
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+# Analysis options for the vendored plugin.
+# Using a simple config to avoid missing package:flutter_lints.
