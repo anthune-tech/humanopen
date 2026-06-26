@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String _networkStatus = 'checking...';
   Map<String, dynamic> _stats = {};
   Timer? _statsTimer;
+  StreamSubscription? _connectivitySub;
 
   @override
   void initState() {
@@ -35,18 +36,15 @@ class _HomeScreenState extends State<HomeScreen> {
     _refreshStats();
     _statsTimer = Timer.periodic(Duration(seconds: 5), (_) => _refreshStats());
 
-    widget.connectivityService.stateStream.listen((state) {
-      setState(() {
-        _networkStatus = state.anyNetwork
-            ? 'Connected (${state.activeNetwork})'
-            : 'No network';
-      });
+    _connectivitySub = widget.connectivityService.stateStream.listen((_) {
+      _updateNetworkStatus();
     });
   }
 
   @override
   void dispose() {
     _statsTimer?.cancel();
+    _connectivitySub?.cancel();
     super.dispose();
   }
 
@@ -54,23 +52,39 @@ class _HomeScreenState extends State<HomeScreen> {
     try {
       final stats = await widget.inferenceService.getStats();
       if (mounted) {
-        setState(() {
-          _stats = stats;
-          _aiState = widget.inferenceService.isModelLoaded
-              ? AiState.idle
-              : AiState.loading;
-          final mode = Config.instance.useLocalModel ? 'local' : 'remote';
-          final compute = Config.instance.useLocalModel
-              ? widget.inferenceService.computeMode
-              : '';
-          _status = widget.inferenceService.isModelLoaded
-              ? 'Model: ${widget.inferenceService.currentModelName} ($mode / $compute)'
-              : Config.instance.useLocalModel
-                  ? 'No model loaded'
-                  : 'Remote: ${Config.instance.apiBaseUrl}';
-        });
+        setState(() { _stats = stats; });
       }
     } catch (_) {}
+    _updateNetworkStatus();
+    _updateStatus();
+  }
+
+  void _updateNetworkStatus() {
+    final cs = widget.connectivityService;
+    setState(() {
+      _networkStatus = cs.wifiAvailable
+          ? 'Connected (WiFi)'
+          : cs.mobileDataOn
+              ? 'Connected (GSM)'
+              : 'No network';
+    });
+  }
+
+  void _updateStatus() {
+    setState(() {
+      _aiState = widget.inferenceService.isModelLoaded
+          ? AiState.idle
+          : AiState.loading;
+      final mode = Config.instance.useLocalModel ? 'local' : 'remote';
+      final compute = Config.instance.useLocalModel
+          ? widget.inferenceService.computeMode
+          : '';
+      _status = widget.inferenceService.isModelLoaded
+          ? 'Model: ${widget.inferenceService.currentModelName} ($mode / $compute)'
+          : Config.instance.useLocalModel
+              ? 'No model loaded'
+              : 'Remote: ${Config.instance.apiBaseUrl}';
+    });
   }
 
   @override
