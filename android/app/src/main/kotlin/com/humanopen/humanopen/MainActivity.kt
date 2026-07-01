@@ -4,19 +4,24 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Environment
+import android.provider.MediaStore
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
+import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
+import java.io.File
 import java.util.Locale
 
 class MainActivity : FlutterActivity() {
     private val FOREGROUND_CHANNEL = "com.humanopen/foreground_service"
     private val STT_CHANNEL = "com.humanopen/stt"
+    private val FILE_CHANNEL = "com.humanopen/file_list"
     private var speechRecognizer: SpeechRecognizer? = null
     private var pendingSttResult: MethodChannel.Result? = null
 
@@ -34,6 +39,22 @@ class MainActivity : FlutterActivity() {
                     val intent = Intent(this, ForegroundService::class.java)
                     stopService(intent)
                     result.success(null)
+                }
+                else -> result.notImplemented()
+            }
+        }
+
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, FILE_CHANNEL).setMethodCallHandler { call, result ->
+            when (call.method) {
+                "listFiles" -> {
+                    val path = call.argument<String>("path") ?: "/storage/emulated/0"
+                    try {
+                        val output = listDirectory(path)
+                        result.success(output)
+                    } catch (e: Exception) {
+                        Log.e("HumanopenFile", "Error listing $path: ${e.message}")
+                        result.error("FILE_ERROR", e.message, null)
+                    }
                 }
                 else -> result.notImplemented()
             }
@@ -77,6 +98,81 @@ class MainActivity : FlutterActivity() {
             pendingSttResult?.success(granted)
             pendingSttResult = null
         }
+    }
+
+    private fun listDirectory(path: String): String {
+        Log.d("HumanopenFile", "listDirectory($path) hasManageStorage=${Environment.isExternalStorageManager()}")
+
+        // If we have MANAGE_EXTERNAL_STORAGE, use direct File API
+        if (Environment.isExternalStorageManager()) {
+            try {
+                val dir = File(path)
+                if (dir.exists() && dir.isDirectory) {
+                    val files = dir.listFiles()
+                    if (files != null && files.isNotEmpty()) {
+                        val sb = StringBuilder()
+                        for (file in files) {
+                            val type = if (file.isDirectory) "dir" else "file"
+                            sb.appendLine("$type ${file.name} (${file.length()} bytes, modified ${file.lastModified()})")
+                        }
+                        Log.d("HumanopenFile", "File API returned ${files.size} entries")
+                        return sb.toString().trimEnd()
+                    }
+                    Log.d("HumanopenFile", "File API: directory exists but no files visible")
+                } else {
+                    Log.d("HumanopenFile", "File API: $path does not exist")
+                }
+            } catch (e: Exception) {
+                Log.e("HumanopenFile", "File API failed: ${e.message}")
+            }
+        }
+
+        // Try without su (standard app UID)
+        try {
+            val process = Runtime.getRuntime().exec(arrayOf("ls", "-la", path))
+            val reader = java.io.BufferedReader(java.io.InputStreamReader(process.inputStream))
+            val errReader = java.io.BufferedReader(java.io.InputStreamReader(process.errorStream))
+            val output = reader.readText()
+            val err = errReader.readText()
+            process.waitFor()
+            Log.d("HumanopenFile", "ls stdout: $output")
+            Log.d("HumanopenFile", "ls stderr: $err")
+            if (output.isNotBlank()) return output
+        } catch (e: Exception) {
+            Log.e("HumanopenFile", "ls exec failed: ${e.message}")
+        }
+
+        // MediaStore fallback for well-known paths
+        try {
+            val uri = when {
+                path.contains("/Download") -> MediaStore.Downloads.EXTERNAL_CONTENT_URI
+                path.contains("/DCIM/Camera") || path.contains("/Pictures") -> MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                else -> null
+            }
+            if (uri != null) {
+                val sb = StringBuilder()
+                val projection = arrayOf(
+                    MediaStore.MediaColumns.DISPLAY_NAME,
+                    MediaStore.MediaColumns.SIZE,
+                    MediaStore.MediaColumns.DATE_MODIFIED,
+                )
+                contentResolver.query(uri, projection, null, null, null)?.use { cursor ->
+                    val count = cursor.count
+                    Log.d("HumanopenFile", "MediaStore returned $count rows")
+                    while (cursor.moveToNext()) {
+                        val name = cursor.getString(0) ?: "unknown"
+                        val size = cursor.getLong(1)
+                        val modified = cursor.getLong(2)
+                        sb.appendLine("$name ($size bytes, modified $modified)")
+                    }
+                }
+                if (sb.isNotEmpty()) return sb.toString()
+            }
+        } catch (e: Exception) {
+            Log.e("HumanopenFile", "MediaStore query failed: ${e.message}")
+        }
+
+        return ""
     }
 
     private fun startListening(result: MethodChannel.Result, durationSeconds: Int) {

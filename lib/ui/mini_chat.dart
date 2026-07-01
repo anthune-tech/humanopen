@@ -319,6 +319,8 @@ class _MiniChatState extends State<MiniChat> {
                             itemBuilder: (context, index) {
                               final msg = _messages[index];
                               final isUser = msg['role'] == 'user';
+                              final isTool = msg['role'] == 'tool';
+                              if (isTool) return const SizedBox.shrink();
                               return Padding(
                                 padding: EdgeInsets.only(
                                   bottom: 12,

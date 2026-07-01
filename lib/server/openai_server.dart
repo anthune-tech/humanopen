@@ -114,7 +114,8 @@ class OpenaiServer {
       final sessionId = sessionInfo['session_id'] as String;
       final userMsg = messages.last['content'] as String;
 
-      _inferenceService.generate(matrixId, sessionId, userMsg).listen(
+      StreamSubscription? sub;
+      sub = _inferenceService.generate(matrixId, sessionId, userMsg).listen(
         (token) {
           final payload = jsonEncode({
             'choices': [{
@@ -133,7 +134,9 @@ class OpenaiServer {
           request.response.write('data: $payload\n\n');
           request.response.close();
         },
+        cancelOnError: false,
       );
+      request.response.done.catchError((_) {}).then((_) => sub?.cancel());
     }).catchError((e) {
       request.response.write('data: ${jsonEncode({"error": e.toString()})}\n\n');
       request.response.close();
@@ -147,7 +150,8 @@ class OpenaiServer {
       final userMsg = messages.last['content'] as String;
 
       final buffer = StringBuffer();
-      _inferenceService.generate(matrixId, sessionId, userMsg).listen(
+      StreamSubscription? sub;
+      sub = _inferenceService.generate(matrixId, sessionId, userMsg).listen(
         (token) => buffer.write(token),
         onDone: () {
           _sendJson(request.response, {
@@ -173,7 +177,10 @@ class OpenaiServer {
         onError: (e) {
           _sendJson(request.response, {'error': e.toString()}, 500);
         },
+        cancelOnError: false,
       );
+      // Cancel generation if client disconnects
+      request.response.done.catchError((_) {}).then((_) => sub?.cancel());
     }).catchError((e) {
       _sendJson(request.response, {'error': e.toString()}, 500);
     });
